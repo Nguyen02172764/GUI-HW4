@@ -1,0 +1,79 @@
+<!--
+File: index.html
+GUI Assignment: HW4 Part 1 - jQuery Validation Plugin with Dynamic Table
+Andrew Nguyen, UMass Lowell Computer Science, Andrew_Nguyen4@student.uml.edu
+Copyright (c) 2026 by Andrew. All rights reserved. May be freely copied or
+excerpted for educational purposes with credit to the author.
+updated by AN on June 14, 2026 at 5:00 PM
+Description: Builds on HW3 where we first created the dynamic multiplication table.
+This Part 1 version upgrades the validation by using the jQuery Validation plugin.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Makes the page scale properly on different screen sizes. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dynamic Multiplication Table</title>
+
+    <!-- My custom stylesheet. -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main class="page-container">
+        <h1>Dynamic Multiplication Table</h1>
+
+        <p class="intro">
+            Enter a range of row and column values to generate a multiplication table.
+            Values must be whole numbers between -50 and 50.
+        </p>
+
+        <!-- 
+        novalidate disables browser popup validation.
+        This lets the jQuery Validation plugin control the error messages.
+        -->
+        <form id="tableForm" novalidate>
+            <div class="form-group">
+                <label for="minCol">Minimum Column Value:</label>
+                <input type="number" id="minCol" name="minCol">
+                <div class="error-area" id="minColError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="maxCol">Maximum Column Value:</label>
+                <input type="number" id="maxCol" name="maxCol">
+                <div class="error-area" id="maxColError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="minRow">Minimum Row Value:</label>
+                <input type="number" id="minRow" name="minRow">
+                <div class="error-area" id="minRowError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="maxRow">Maximum Row Value:</label>
+                <input type="number" id="maxRow" name="maxRow">
+                <div class="error-area" id="maxRowError"></div>
+            </div>
+
+            <button type="submit">Generate Table</button>
+        </form>
+
+        <!-- The generated multiplication table appears here. -->
+        <div id="tableContainer" class="table-container"></div>
+    </main>
+
+    <!-- jQuery must load before the validation plugin. -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- jQuery Validation plugin for HW4 Part 1. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.21.0/jquery.validate.min.js"></script>
+
+    <!-- JavaScript. -->
+    <script src="js/script.js"></script>
+</body>
+</html>
